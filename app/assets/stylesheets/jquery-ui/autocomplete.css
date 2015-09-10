@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Autocomplete 1.11.4
+ * jQuery UI Autocomplete 1.12.0-pre
  * http://jqueryui.com
  *
  * Copyright jQuery Foundation and other contributors
@@ -7,11 +7,6 @@
  * http://jquery.org/license
  *
  * http://api.jqueryui.com/autocomplete/#theming
- */
-/*
- *= require jquery-ui/core
- *= require jquery-ui/menu
- *= require jquery-ui/theme
  */
 .ui-autocomplete {
 	position: absolute;

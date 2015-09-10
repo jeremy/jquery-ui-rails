@@ -62,6 +62,10 @@ task :submodule do
   sh 'git submodule update --init' unless File.exist?('jquery-ui/README.md')
 end
 
+def asset_basename(path, base = 'jquery-ui/ui/')
+  path.sub base, ''
+end
+
 def get_js_dependencies(basename)
   dependencies = dependency_hash[basename]
   if dependencies.nil?
@@ -107,9 +111,11 @@ task :javascripts => :submodule do
   target_dir = "app/assets/javascripts"
   target_ui_dir = "#{target_dir}/jquery-ui"
   mkdir_p target_ui_dir
+  mkdir_p "#{target_ui_dir}/effects"
+  mkdir_p "#{target_ui_dir}/widgets"
 
-  Dir.glob("jquery-ui/ui/*.js").each do |path|
-    basename = File.basename(path)
+  Dir.glob("jquery-ui/ui{,/effects,/widgets}/*.js").each do |path|
+    basename = asset_basename(path)
     dep_modules = get_js_dependencies(basename).map(&method(:remove_js_extension))
     File.open("#{target_ui_dir}/#{basename}", "w") do |out|
       dep_modules.each do |mod|
@@ -136,16 +142,26 @@ task :javascripts => :submodule do
   end
 
   File.open("#{target_ui_dir}/effect.all.js", "w") do |out|
-    Dir.glob("jquery-ui/ui/effect*.js").sort.each do |path|
-      asset_name = remove_js_extension(File.basename(path))
+    Dir.glob("jquery-ui/ui/effects/*.js").sort.each do |path|
+      asset_name = remove_js_extension(asset_basename(path))
       out.write("//= require jquery-ui/#{asset_name}\n")
     end
   end
+
+  File.open("#{target_ui_dir}/widgets.all.js", "w") do |out|
+    Dir.glob("jquery-ui/ui/widgets/*.js").sort.each do |path|
+      asset_name = remove_js_extension(asset_basename(path))
+      out.write("//= require jquery-ui/widgets/#{asset_name}\n")
+    end
+  end
+
   File.open("#{target_dir}/jquery-ui.js", "w") do |out|
     Dir.glob("jquery-ui/ui/*.js").sort.each do |path|
-      asset_name = remove_js_extension(File.basename(path))
+      asset_name = remove_js_extension(asset_basename(path))
       out.write("//= require jquery-ui/#{asset_name}\n")
     end
+    out.write("//= require jquery-ui/effect.all\n")
+    out.write("//= require jquery-ui/widgets.all\n")
   end
 end
 

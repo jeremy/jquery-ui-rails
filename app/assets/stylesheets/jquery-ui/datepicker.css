@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Datepicker 1.11.4
+ * jQuery UI Datepicker 1.12.0-pre
  * http://jqueryui.com
  *
  * Copyright jQuery Foundation and other contributors
@@ -7,10 +7,6 @@
  * http://jquery.org/license
  *
  * http://api.jqueryui.com/datepicker/#theming
- */
-/*
- *= require jquery-ui/core
- *= require jquery-ui/theme
  */
 .ui-datepicker {
 	width: 17em;

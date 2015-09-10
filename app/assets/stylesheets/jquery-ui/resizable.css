@@ -1,14 +1,10 @@
 /*!
- * jQuery UI Resizable 1.11.4
+ * jQuery UI Resizable 1.12.0-pre
  * http://jqueryui.com
  *
  * Copyright jQuery Foundation and other contributors
  * Released under the MIT license.
  * http://jquery.org/license
- */
-/*
- *= require jquery-ui/core
- *= require jquery-ui/theme
  */
 .ui-resizable {
 	position: relative;

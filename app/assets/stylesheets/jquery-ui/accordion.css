@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Accordion 1.11.4
+ * jQuery UI Accordion 1.12.0-pre
  * http://jqueryui.com
  *
  * Copyright jQuery Foundation and other contributors
@@ -8,17 +8,12 @@
  *
  * http://api.jqueryui.com/accordion/#theming
  */
-/*
- *= require jquery-ui/core
- *= require jquery-ui/theme
- */
 .ui-accordion .ui-accordion-header {
 	display: block;
 	cursor: pointer;
 	position: relative;
 	margin: 2px 0 0 0;
 	padding: .5em .5em .5em .7em;
-	min-height: 0; /* support: IE7 */
 	font-size: 100%;
 }
 .ui-accordion .ui-accordion-icons {

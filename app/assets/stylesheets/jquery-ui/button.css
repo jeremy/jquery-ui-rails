@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Button 1.11.4
+ * jQuery UI Button 1.12.0-pre
  * http://jqueryui.com
  *
  * Copyright jQuery Foundation and other contributors
@@ -7,10 +7,6 @@
  * http://jquery.org/license
  *
  * http://api.jqueryui.com/button/#theming
- */
-/*
- *= require jquery-ui/core
- *= require jquery-ui/theme
  */
 .ui-button {
 	display: inline-block;
@@ -55,7 +51,7 @@ button.ui-button-icons-only {
 }
 .ui-button-icon-only .ui-button-text,
 .ui-button-icons-only .ui-button-text {
-	padding: .4em;
+	padding: 0;
 	text-indent: -9999999px;
 }
 .ui-button-text-icon-primary .ui-button-text,
